@@ -234,7 +234,7 @@ func _on_accion_pressed(index: int): # <- envio para ac.estado WARNING
 	var accion = acciones_actuales[index]
 	accion_actual = accion["estado"]
 
-	# 🔥 CASO 1: requiere objetivo (props)
+	#  CASO 1: requiere objetivo (props)
 	if accion["requiere_objetivo"]:
 		esperando_objetivo = true
 
@@ -246,13 +246,13 @@ func _on_accion_pressed(index: int): # <- envio para ac.estado WARNING
 		true
 		)
 
-	# 🔥 CASO 2: requiere posición (MOVING)
+	#  CASO 2: requiere posición (MOVING)
 	elif accion.get("requiere_posicion", false):
 		esperando_objetivo = false
 		emit_signal("marcar_position")
 		#hab_marcar_position(accion_actual)
 
-	# 🔥 CASO 3: acción directa
+	#  CASO 3: acción directa
 	else:
 		ejecutar_accion_directa(accion_actual)
 
